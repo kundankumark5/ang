@@ -14,6 +14,9 @@ import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { warningAlertComponent } from './warningAlert/warningAlert.component';
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,10 +31,13 @@ import { warningAlertComponent } from './warningAlert/warningAlert.component';
     ServerComponent,
     ServersComponent,
     SuccessAlertComponent,
-    warningAlertComponent
+    warningAlertComponent,
+    CockpitComponent,
+    ServerElementComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-xs-12">
+    <p>new Servers or Blueprints</p>
+
+    <!--with ngmodel value 👇-->
+    <!-- <label for="serverName">Server Name</label> -->
+    <!-- <input
+      id="serverName"
+      type="text"
+      class="form-control"
+      [(ngModel)]="newServerName"
+    /> -->
+
+    <!-- <label for="serverContent">Server Content</label> -->
+    <!-- <input
+      id="serverContent"
+      type="text"
+      class="form-control"
+      [(ngModel)]="newServerContent"
+    /> -->
+
+    <!-- <button class="btn btn-primary" (click)="onServerAdded()">
+      Add Server
+    </button> -->
+    <!-- <button class="btn btn-primary" (click)="onBlueprintAdded()">
+      Add Server Blueprint
+    </button> -->
+
+    <!-- we can do this with #localrefrence 👇 -->
+    <label for="serverName">Server Name</label>
+    <input id="serverName" type="text" class="form-control" #serverNameInput />
+    <label for="serverContent">Server Content</label>
+    <input
+      id="serverContent"
+      type="text"
+      class="form-control"
+      #serverBlueprintInput
+    />
+    <br />
+
+    <button
+      class="btn btn-primary"
+      (click)="onServerAdded(serverNameInput)"
+    >
+      Add Server
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="onBlueprintAdded(serverNameInput)"
+    >
+      Add Server Blueprint
+    </button>
+  </div>
+</div>
