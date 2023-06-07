@@ -17,6 +17,9 @@ import { warningAlertComponent } from './warningAlert/warningAlert.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { FormsModule } from '@angular/forms';
+import { GameControlComponent } from './assignment4/game-control/game-control.component';
+import { EvenComponent } from './assignment4/even/even.component';
+import { OddComponent } from './assignment4/odd/odd.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { FormsModule } from '@angular/forms';
     SuccessAlertComponent,
     warningAlertComponent,
     CockpitComponent,
-    ServerElementComponent
+    ServerElementComponent,
+    GameControlComponent,
+    EvenComponent,
+    OddComponent
   ],
   imports: [
     BrowserModule,

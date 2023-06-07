@@ -5,11 +5,27 @@
         {{ element.name }}
       </div>
       <div class="panel-body">
-        <p>
+        <!-- we can replace these following lines to directly to the selector (here which is in app component) of this component using ng content here -->
+        <!-- <p>
           <strong *ngIf="element.type === 'server'" style="color: red">{{
             element.content
           }}</strong>
           <em *ngIf="element.type === 'Blueprint'">{{ element.content }}</em>
-        </p>
+        </p> -->
+        <ng-content></ng-content>
       </div>
     </div>
+
+
+    <!-- 
+lifeCycle hooks 
+
+ngOnChanges  when input property changes    
+ngOnInit called once component initialised that's after construction
+ngDoCheck called during every change detection run (if you don't change anything it checks always after any event )
+ngAgterContentInit called after content(that's ng-content) has been projected into view 
+ngAfterContentChecked called every time the projected content has been checked 
+ngAfterViewInit called after the component's view and child views has been initialized
+ngAfterViewChecked called every time the view and child views have been checked
+ngOnDestroy called once the component is about to destroy 
+     -->
