@@ -20,6 +20,14 @@ import { FormsModule } from '@angular/forms';
 import { GameControlComponent } from './assignment4/game-control/game-control.component';
 import { EvenComponent } from './assignment4/even/even.component';
 import { OddComponent } from './assignment4/odd/odd.component';
+import { BasicHightlightDirective } from './basic-highlight/basic-highlight.directive';
+import { BetterDirectiveDirective } from './better-highlight/better-directive.directive';
+import { UnlessDirective } from './unless.directive';
+import { dropdownDirective } from './shared/dropdown.directive';
+import { ActiveUserComponent } from './active-user/active-user.component';
+import { InActiveUserComponent } from './in-active-user/in-active-user.component';
+import { CounterService } from './counter.service';
+import { ShoppingList } from './shopping-list/shoppingList.service';
 
 @NgModule({
   declarations: [
@@ -39,14 +47,16 @@ import { OddComponent } from './assignment4/odd/odd.component';
     ServerElementComponent,
     GameControlComponent,
     EvenComponent,
-    OddComponent
+    OddComponent,
+    BasicHightlightDirective,
+    BetterDirectiveDirective,
+    UnlessDirective,
+    dropdownDirective,
+    ActiveUserComponent,
+    InActiveUserComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  providers: [CounterService,ShoppingList],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

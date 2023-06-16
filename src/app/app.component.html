@@ -1,9 +1,11 @@
 <app-header (selectedFeature)="onNavigate($event)"></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-12" >
-      <app-recipes *ngIf="selectedView==='Recipe'"></app-recipes>
-      <app-shopping-list  *ngIf="selectedView==='Shopping-list'"></app-shopping-list>
+    <div class="col-md-12">
+      <app-recipes *ngIf="selectedView === 'Recipe'"></app-recipes>
+      <app-shopping-list
+        *ngIf="selectedView === 'Shopping-list'"
+      ></app-shopping-list>
     </div>
   </div>
   <app-cockpit
@@ -33,6 +35,13 @@
       </app-server-element>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-md-offset-2">
+      <app-active-user></app-active-user>
+      <app-in-active-user></app-in-active-user>
+    </div>
+  </div>
 </div>
 <app-servers></app-servers>
 
@@ -50,6 +59,8 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
+    <!-- <app-odd *ngFor="let i of oddNumbers" [number]="i"></app-odd> -->
+
     <app-odd *ngFor="let i of oddNumbers" [number]="i"></app-odd>
   </div>
 </div>
@@ -57,4 +68,25 @@
   <div class="col-xs-12">
     <app-even *ngFor="let i of evenNumbers" [number]="i"></app-even>
   </div>
+</div>
+<p appBasicHightlight>style with the custom directive !</p>
+<p appBetterDirective [defaultColor]="'pink'" [highlightColor]="'violet'">
+  style with the better custom directive !
+</p>
+<!--we can declare var in directive using @input() and then we will assign those value from here-->
+
+<!--  we will now create a custom ngIf directive (named 'unless' here) create a directive ng g d unless, now using input , set , viewChieldRef and template Ref now we can use it and pass conditin as the same way we pass to ngIf👇 -->
+
+<div *appUnless="!oddNumsForUnlessDir">
+  <li class="list-group-item" *ngFor="let odd of oddNumsForUnlessDir">
+    {{ odd }}
+  </li>
+</div>
+
+<!-- ngSwitch : only one output at a time on specific  conditon , let say we have a value in ts named swithCaseVal with value 10, and here we have 4 p elements but we want to show only those having same value of our variable , this will achieve through switch case only -->
+<div [ngSwitch]="switchCaseVal">
+  <p *ngSwitchCase="5">Value is 5</p>
+  <p *ngSwitchCase="10">Value is 10</p>
+  <p *ngSwitchCase="15">Value is 5</p>
+  <p *ngSwitchDefault>Default</p>
 </div>
