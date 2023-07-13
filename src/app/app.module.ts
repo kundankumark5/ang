@@ -28,6 +28,15 @@ import { ActiveUserComponent } from './active-user/active-user.component';
 import { InActiveUserComponent } from './in-active-user/in-active-user.component';
 import { CounterService } from './counter.service';
 import { ShoppingList } from './shopping-list/shoppingList.service';
+import { RoutingExHomeComponent } from './routing-ex-home/routing-ex-home.component';
+import { RoutingExUsersComponent } from './routing-ex-users/routing-ex-users.component';
+import { RoutingExServersComponent } from './routing-ex-servers/routing-ex-servers.component';
+import { RoutingExUserComponent } from './routing-ex-user/routing-ex-user.component';
+import { RoutingExServerEditComponent } from './routing-ex-server-edit/routing-ex-server-edit.component';
+import { RoutingExServerComponent } from './routing-ex-server/routing-ex-server.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -53,10 +62,17 @@ import { ShoppingList } from './shopping-list/shoppingList.service';
     UnlessDirective,
     dropdownDirective,
     ActiveUserComponent,
-    InActiveUserComponent
+    InActiveUserComponent,
+    RoutingExHomeComponent,
+    RoutingExUsersComponent,
+    RoutingExServersComponent,
+    RoutingExUserComponent,
+    RoutingExServerEditComponent,
+    RoutingExServerComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [CounterService,ShoppingList],
+  providers: [CounterService, ShoppingList,AuthService,AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

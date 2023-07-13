@@ -1,0 +1,7 @@
+<h4 *ngIf="!allowEdits">You are not allowed to edit</h4>
+<div *ngIf="allowEdits">
+
+  <h5>{{serverName}}</h5>
+<p>server status is {{serverStatus}}</p>
+<button class="btn btn-primary" (click)="onEdit()">Edit server</button>
+</div>

@@ -90,3 +90,49 @@
   <p *ngSwitchCase="15">Value is 5</p>
   <p *ngSwitchDefault>Default</p>
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/">Home</a></li>   <!--we can use an angular directive routerLinkActive='anyClassName'to make active tab visual, either with wrapping element or link itself, however one major problem remains exist that home is always active since it declacred as a blank router link so active class is applying to two links simultaneously , for resolve this we will use 👉 routerLinkActiveOptions={exact:true} which checks wheather our first link is realy active or not-->
+        <li role="presentation" routerLinkActive="active"><a routerLink="/routingExUsers">Users</a></li>
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['/routingExServers']">Servers</a></li> <!-- we can use this too..-->
+
+        <!-- Apart from routerlink in anchor tag we can load our component on click event too ... just add a element with click assign it a function and in ts import router from @angular/router then create a private instance of the router in constructor then  within this function body just use this.router.navigate['anyDefinedRoute'] -->
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <app-users></app-users>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <app-servers></app-servers>
+    </div>
+  </div> -->
+</div>
+<!-- PS : if we add {path:'anyPath/:id' component : anyComponentName} then it'll load our anyComponentName comp every time no matters what path we write after anyPath/_ anything would be then considered as id (: is imp otherwise it would be a path), go to app routing for ex  -->
+
+<!-- to apply authguard : make a auth service to validate login/out , now create an auth-guard service (@injectable() type and import this auth servie) implementing canActivate & activatedRouteSnapshot, routerStateSnapshot and router from angular/router , canactivate must define this way 👇
+
+canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):  Observable<boolean> | Promise<boolean> | boolean {
+return this.authService.isAuthenticated().then((t:boolean)=>{if(t){
+  return true
+}else{
+  this.router.navigate['/']
+}
+})
+}
+now go to routing module and add canActivate in component's path
+-->
+<router-outlet></router-outlet>``````````````````````````````````````````````````````````````````````````````````````````````````
